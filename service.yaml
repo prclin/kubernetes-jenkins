@@ -3,10 +3,8 @@ kind: Service
 metadata:
   name: jenkins-svc
   namespace: jenkins
-  annotations:
-      prometheus.io/scrape: 'true'
-      prometheus.io/path:   /
-      prometheus.io/port:   '8080'
+  labels:
+    app: jenkins-server
 spec:
   selector: 
     app: jenkins-server
