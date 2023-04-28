@@ -55,6 +55,7 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: jenkins-data
+      namespace: cd-cd
     spec:
       #更换到指定的存储类
       storageClassName: "nfs-storage"
