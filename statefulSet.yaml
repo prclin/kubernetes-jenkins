@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: jenkins
+  name: jenkins-server
   namespace: ci-cd
 spec:
   replicas: 1
@@ -17,9 +17,10 @@ spec:
             fsGroup: 1000 
             runAsUser: 1000
       serviceAccountName: jenkins-admin
+      serviceName: jenkins-server
       containers:
         - name: jenkins
-          image: jenkins/jenkins:lts
+          image: jenkins/jenkins:lts-alpine
           #自行设置资源限制
           #resources:
           #  limits:
@@ -55,7 +56,7 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: jenkins-data
-      namespace: cd-cd
+      namespace: ci-cd
     spec:
       #更换到指定的存储类
       storageClassName: "nfs-storage"
