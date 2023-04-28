@@ -56,6 +56,8 @@ spec:
   - metadata:
       name: jenkins-data
     spec:
+      #更换到指定的存储类
+      storageClassName: "nfs-storage"
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
