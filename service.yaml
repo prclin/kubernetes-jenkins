@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-server
+  name: jenkins
   namespace: ci-cd
   labels:
     app: jenkins-server
 spec:
-  selector: 
+  selector:
     app: jenkins-server
-  type: NodePort  
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
